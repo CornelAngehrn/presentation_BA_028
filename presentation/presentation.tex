@@ -13,6 +13,7 @@
 \usepackage{caption, subcaption}
 \usepackage{verbatim}
 \usepackage{eso-pic} %to draw on top right corner
+\usepackage{xpatch}
 
 %define hsr colors
 \definecolor{hsrBlue}{RGB}{000,101,163}
@@ -182,6 +183,7 @@
 	\end{beamercolorbox}}%
 	\vskip0pt%
 }
+\patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{\insertsection: \insertframetitle}{}{}
 \makeatother
 
 
