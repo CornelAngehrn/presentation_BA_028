@@ -151,6 +151,40 @@
 %{Conference on Presentation Techniques, 2004}
 \subject{Embedded Systems}
 
+%remove title and author from sidebar
+\makeatletter
+	\setbeamertemplate{sidebar \beamer@sidebarside}
+	{
+		\beamer@tempdim=\beamer@sidebarwidth
+		\advance\beamer@tempdim by -6pt
+		\insertverticalnavigation{\beamer@sidebarwidth}
+		\vfill
+		\ifx\beamer@sidebarside\beamer@lefttext
+		\else
+			\usebeamercolor{normal text}
+			\llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}
+			\vskip2pt
+		\fi
+	}
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\color{black} \insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\color{black} \insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+			\color{black} \insertshortdate{}\hspace*{2em}
+			\color{black} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatother
+
+
 \begin{document}
 
   %titelseite
