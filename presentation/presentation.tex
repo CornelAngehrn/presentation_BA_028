@@ -1,0 +1,199 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{german}
+\usepackage[utf8]{inputenc} %for windows
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{caption, subcaption}
+\usepackage{verbatim}
+\usepackage{eso-pic} %to draw on top right corner
+
+%define hsr colors
+\definecolor{hsrBlue}{RGB}{000,101,163}
+\definecolor{hsrHematite}{RGB}{110,028,080}
+\definecolor{hsrLakeGreen}{RGB}{084,140,134}
+\definecolor{hsrReed}{RGB}{123,105,081}
+\definecolor{hsrPetrol}{RGB}{000,115,141}
+\definecolor{hsrBasswood}{RGB}{186,189,093}
+\definecolor{hsrGray}{RGB}{198,199,200}
+\definecolor{hsrBlack}{RGB}{026,023,027}
+
+%design & color
+\usetheme[width=2.2cm]{PaloAlto}
+\usecolortheme{beaver}
+\useinnertheme{circles}
+\usefonttheme[onlymath]{serif}
+\setbeamercolor{section in sidebar}{fg=hsrBlack}
+\setbeamercolor{itemize item}{fg=hsrBlue}
+\setbeamercolor{itemize subitem}{fg=hsrLakeGreen}
+\setbeamercolor{item projected}{fg=white,bg=hsrBlack}
+\setbeamercolor{title in sidebar}{fg=hsrBlack}
+\setbeamercolor{author in sidebar}{fg=hsrBlue} 
+\setbeamercolor{caption name}{fg=hsrBlue}
+\setbeamercolor*{title}{fg=hsrBlue}
+\setbeamercolor{frametitle}{fg=hsrBlue, bg=hsrGray!15!white}
+\setbeamercolor{sidebar}{bg=hsrGray!15!white}
+\setbeamercolor{logo}{bg=hsrGray!0!white}
+
+%disable navigation symbols
+\beamertemplatenavigationsymbolsempty
+%slide numbers
+\setbeamertemplate{footline}[frame number]
+
+%used for drawing n(r)-Area
+\definecolor{lGray}{gray}{0.8}
+\definecolor{llGray}{gray}{0.9}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{fadings}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.97,0.97,0.97}
+\definecolor{lightGray}{gray}{0.1}
+
+\definecolor{cOrange}{HTML}{996633}
+\definecolor{clOrange}{HTML}{DBB48D}
+\definecolor{cBlue}{HTML}{336699}
+\definecolor{clBlue}{HTML}{A0BCD8}
+\definecolor{cGreen}{HTML}{339966}
+\definecolor{clGreen}{HTML}{94D4B4}
+\definecolor{cRed}{HTML}{993333}
+\definecolor{clRed}{HTML}{D0B0B0}
+\definecolor{cGray}{gray}{0.4}
+\definecolor{clGray}{gray}{0.96}
+
+\tikzset{>=stealth}
+
+\newcommand{\eurobot}{$\text{Eurobot}^\text{open}$\ }
+
+% ----- lstListings (C++ code with syntax highlighting) -----
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	xleftmargin=0.5cm,
+	xrightmargin=0.5cm,
+	tabsize=2,
+	language=C++,
+	captionpos=b,
+	frame=none,
+	numbers=none,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	breakautoindent=true, 
+	breakindent=20pt,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	%prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{cRed}\rhookswarrow}},
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{cRed}\lhookrightarrow\space}},
+	basicstyle=\ttfamily,
+	identifierstyle=\color{black},
+	keywordstyle=\color{cRed},
+	commentstyle=\color{cGreen},
+	stringstyle=\color{cOrange},
+	morekeywords={uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, bool},
+	emph=[1]
+	{
+		%enum list
+		connectionTimeout, ObtCom_msgTimeout,
+		stIdle, stWaitForConnection, 
+		evTimeout, evNewReq,evNewMsg, evReceivedReq, evReceivedAck, evReceivedErr, evReceivedAns, evNewXXX, evReceivedXXX, 
+		msg, req, ans, ack, err, ObtCom_numIds,
+		CAL_USR_INP_REQ, CAL_FIN,
+		STOP_FORWARD, STOP_BACKWARD, STOP_DIR_AUTO, NO_LIMIT, FIX_DIR, TURN_FIRST
+	},
+	emphstyle=[1]{\color{cBlue}\textit},
+	emph=[2]
+	{
+		%typedef list
+		error_t,
+		ObtCom_msgId_t,	ObtCom_msgReaction_t, ObtCom_ansReaction_t, ObtCom_reqReaction_t, ObtCom_msg_t, ObtCom_msgType_t,
+		canCom_msg_t, canCom_moduleAddr_t, canCom_subId_t,
+		senstime_t, sensmodule_t,
+		posCtrl_way_t, posCtrl_stopDir_t, posCtrl_wayLimit_t, posCtrl_dest_t, pos_t
+	},
+	emphstyle=[2]{\color{cGreen!70!black}},
+	emph=[3]
+	{
+		%function list
+		main,
+		canCom_init,
+		fillStackWithPattern,
+		encodeId, decodeId, ObtCom_validateMessage,
+		display_registerNewSettingScreen, display_newSubMenuEntryToggle, display_newSubMenuEntrySelection, display_newSubMenuEntryButton, display_newSubMenuEntryText, display_newSubMenuEntryNumberInput, display_editEntryText, display_setVisibilitySubMenuEntry, display_drawScreen, display_isSubMenuActive,
+		runTest, makeMenu, switchMode, getMode, toggleDebugMode, getDebugMode,setMaxSpeed, getMaxSpeed,
+		calloc, malloc,
+		cal_setError, cal_start, cal_stop, cal_off, cal_getMode, cal_reset,
+		atan2,
+		posCtrl_addDest, posCtrl_clearAllDests, posCtrl_getDest, posCtrl_secStop
+	},
+	emphstyle=[3]{\color{cBlue!60!black}},
+}
+
+%use command const
+\DeclareMathOperator{\const}{Konstant}
+
+%title informations
+\title[Eurobot] % (optional, only for long titles)
+{Eurobot 2017 -- Moon Village}
+\author[C. Angehrn \\M. Knöpfel \\T. Schneider] % (optional, for multiple authors)
+{Cornel Angehrn \and Matthias Knöpfel \and Tibor Schneider}
+\institute[hsr, imes] % (optional)
+{
+  HSR Hochschule für Technik Rapperswil \and
+  IMES Institut für Mikroelektronik und Embedded Systems
+}
+%\date[KPT 2004] % (optional)
+%{Conference on Presentation Techniques, 2004}
+\subject{Embedded Systems}
+
+\begin{document}
+
+  %titelseite
+  \begingroup
+  \makeatletter
+  \setlength{\hoffset}{-.5\beamer@sidebarwidth}
+  \makeatother
+  \begin{frame}[plain]
+  	\begin{figure}
+	  	\includegraphics[height=1.4cm]{../images/hsrImesLogo.jpg}
+  	\end{figure}
+  \titlepage 
+  \end{frame}
+	\endgroup
+  
+  %HSR-Logo auf allen Seiten ab hier
+  \addtobeamertemplate{frametitle}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north west,yshift=-8pt, xshift=-6pt, xshift=1.5pt] at (current page.north west) {\includegraphics[height=0.8cm]{../images/HSR_Logo_A0.jpg}};
+  \end{tikzpicture}} 
+
+  %inhaltsverzeichnis
+  %\frame{\frametitle{Inhaltsverzeichnis}\tableofcontents}
+  
+  %Einleitung
+  \input{einleitung.tex}
+  
+  %Vorgaben
+  \input{vorgaben.tex}
+  
+  %Konzepte und Lösungsansätze
+  \input{konzepte.tex}
+  
+  %Mainboard
+  \input{mainboard.tex}
+  
+  %Gegnererkennung
+  \input{gegnererkennung.tex}
+  
+  %Fahrkontroller
+  \input{fahrcontroller.tex}
+ 
+  %Fazit
+  \input{fazit.tex} 
+  
+\end{document}
