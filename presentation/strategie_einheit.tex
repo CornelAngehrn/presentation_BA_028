@@ -45,27 +45,27 @@
 			
 			%job content
 			\begin{scope} [shift={(\sep+\varWidth+\sep+\sep, \jobTop)}]
-				\draw (0,-0*\varHeight-0*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {ID};
+				\draw (0,-0*\varHeight-0*\sep) [fill=white, visible on=<2->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {ID};
 				
-				\draw (0,-1*\varHeight-1*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {currentState};
+				\draw (1*\sep,-1*\varHeight-2*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight);
+				\draw (0.5*\sep,-1*\varHeight-1.5*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight);
+				\draw (0,-1*\varHeight-1*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {requirementFunction()};
 				
-				\draw (1*\sep,-2*\varHeight-3*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight);
-				\draw (0.5*\sep,-2*\varHeight-2.5*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight);
-				\draw (0,-2*\varHeight-2*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {requirementFunction()};
+				\draw (1*\sep,-2*\varHeight-4*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight);
+				\draw (0.5*\sep,-2*\varHeight-3.5*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight);
+				\draw (0,-2*\varHeight-3*\sep) [fill=white, visible on=<3->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {priorityFunction()};
 				
-				\draw (1*\sep,-3*\varHeight-5*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight);
-				\draw (0.5*\sep,-3*\varHeight-4.5*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight);
-				\draw (0,-3*\varHeight-4*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {priorityFunction()};
+				\draw (0,-3*\varHeight-5*\sep) [fill=white, visible on=<4->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {currentState};
 				
-				\draw (0,-4*\varHeight-6*\sep) [fill=white, visible on=<6->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {Target};
+				\draw (0,-4*\varHeight-6*\sep) [fill=white, visible on=<5->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5] {Target};
 				
-				\draw (0,-5*\varHeight-6*\sep) [draw=none, visible on=<6->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5]{$\vdots$};
+				\draw (0,-5*\varHeight-6*\sep) [draw=none, visible on=<5->] rectangle ++(\varWidth, -\varHeight) node[pos=0.5]{$\vdots$};
 				
 				\begin{scope} [shift={(\varWidth+2*\sep, 0)}]
 				
-					\draw (0,0) [fill=white, visible on=<5->] rectangle ++(\fsmWidth, -\fsmHeight);
-					\node [shift={(\fsmText, -0.4)}, visible on=<5->] {State Machine};
-					\node [shift={(\fsmText, -0.8)}, anchor=north, visible on=<5->] {
+					\draw (0,0) [fill=white, visible on=<4->] rectangle ++(\fsmWidth, -\fsmHeight);
+					\node [shift={(\fsmText, -0.4)}, visible on=<4->] {State Machine};
+					\node [shift={(\fsmText, -0.8)}, anchor=north, visible on=<4->] {
 						\footnotesize
 						\begin{tabular}{|c|c|c|c|}
 							\hline
