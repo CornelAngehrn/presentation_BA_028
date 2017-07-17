@@ -1,67 +1,36 @@
 \section{Datenlogger}
 
-%todo Datenlogger nicht so ausführlich behandeln. Eine Folie genügt, erwähnen weshalb dieser verwendet werden muss, was die vorteile eines USB sticks sind, welche Konfigurationen gespeichert werden
-
-%todo 2 minuten sollte für den Datenlogger ausreichen!
-
 \begin{frame}
-	
-	%todo bilder
-	
 	\frametitle{Hardware}	
-	\begin{itemize}
-		\item VDIP1-Board von FTDI
-		\item Daten auf USB-Stick speichern und lesen
-		\item UART-Schnittstelle
-		\item einfache Befehle
-		%todo anstatt einfache Befehle: Logeinträge und konfigurationen speichern
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.6 \textwidth}
+			\begin{itemize}
+				\item VDIP1-Board von FTDI
+				\item Daten auf USB-Stick speichern und lesen
+				\item UART-Schnittstelle
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4 \textwidth}
+			\vspace{-2.8em}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width = 0.8 \textwidth]{../images/vdip1.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
-	
-	%todo weglassen!
-	
-	\frametitle{Software}
-	\framesubtitle{Initialisierung}
+	\frametitle{Software}	
 	\begin{itemize}
-		\item Reset
-		\item Einstellungen
-		\item Ordnerstruktur
-		\item Log-Datei
+		\item Steuerung über einfache Befehle
+		\item Initialisierung
+		\item Ereignisse loggen
+		\item Konfigurationsdaten lesen und speichern
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	
-	%todo weglassen
-	
-	\frametitle{Software}
-	\framesubtitle{Ereignisse loggen}
-	\begin{itemize}
-		\item Log-Eintrag
-		\item Zwischenspeicher
-		\item interne Zeit
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	
-	%todo weglassenn
-	
-	\frametitle{Software}
-	\framesubtitle{Konfigurationsdaten}
-	\begin{itemize}
-		\item Zahlenwerte speichern und lesen
-		\item CSV-Format
-		\item Identifikation über Zeilennummer
-		\item Beschreibung für Nutzer
-		\item \textit{Callback}-Funktionen
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	
+\begin{frame}	
 	\frametitle{Probleme}
 	\begin{itemize}
 		\item Log-Datei wird nicht geschlossen

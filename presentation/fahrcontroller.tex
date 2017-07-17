@@ -1,33 +1,29 @@
 \section{Fahrcontroller}
 
-%todo: vieleicht nur eine Folie mit den Veränderungen des Codes und eine mit den Veränderungen der Kalibration. Und schlussendlich eine mit Problemen. Sonst steht alles, was du sagst, bereits auf der Folie.
-
 \begin{frame}
-	\frametitle{Kommunikation}
-	\begin{itemize}
-		\item Probleme mit dem CAN-Bus
-		\item CRC-Check
-		\item Antwort auf Befehle
-		\item trotzdem nicht fehlerfrei
-	\end{itemize}
-	\end{frame}
+	\frametitle{\,}	
+	\begin{columns}
+		\begin{column}{0.6 \textwidth}
+			Fahrcontroller hauptsächlich in Studienarbeit behandelt.
+			\vspace{1.5em}
+			Anpassungen:
+			\begin{itemize}
+				\item Interface auf Mainboard
+				\item Kommunikation
+				\item Rest bei Gleitkommaoperationen
+				\item Kalibrierung
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4 \textwidth}
+			\vspace{-2.8em}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width = 1 \textwidth]{../images/presentation/dc.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	
 
-\begin{frame}
-	\frametitle{Rest bei Gleitkommaoperationen}
-	\begin{itemize}
-		\item Genauigkeitsverlust
-		\item Fehler summiert sich
-		\item Rest berechnen und speichern
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Konfigurieren}
-	\begin{itemize}
-		\item Konfigurationsdaten auf USB-Stick
-		\item schnelle Anpassungen möglich
-		\item Bedienung über Display
-	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -35,7 +31,7 @@
 	\begin{itemize}
 		\item verbesserte Fehlerberechnung
 		\item Bedienung über Display
-		\item Kalibrationsdaten auf USB-Stick
+		\item Konfigurationsdaten auf USB-Stick
 		\item getrennte Kalibrierung für Vorwärts- und Rückwärtsfahrt
 	\end{itemize}
 \end{frame}
